@@ -1,2 +1,2 @@
-!/bin/bash
-echo $(ls -map) \n
+#!/bin/bash
+ls -map
