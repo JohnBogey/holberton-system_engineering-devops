@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#counts to 20, without bad luck#
+i=0
+while [ "$i" -le 20 ]
+do
+	case "$i" in
+	4)
+		echo "bad luck from China"
+		;;
+	9)
+		echo "bad luck from Japan"
+		;;
+	17)
+		echo "bad luck from Italy"
+		;;
+	*)
+		echo $i
+		;;
+	esac
+	i=$((i+1))
+done
