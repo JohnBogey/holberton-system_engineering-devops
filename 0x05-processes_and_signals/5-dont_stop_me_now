@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #kills infinity
-infinityp="$(pgrep -f infinity)"
-kill -9 "$infinityp"
+kill -9 "$(pgrep -f 4-to_infinity_and_beyond)"
