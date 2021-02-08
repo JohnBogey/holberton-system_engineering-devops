@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #kills infinity
-kill -9 "$(pgrep -f infinity)"
+infinityp="$(pgrep -f infinity)"
+kill -9 "$infinityp"
