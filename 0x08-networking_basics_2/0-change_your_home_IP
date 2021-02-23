@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#configures ubuntu server
+cp /etc/hosts ~/hosts.new
+echo 'localhost 127.0.0.2\nfacebook.com 8.8.8.8' >> ~/hosts.new
+echo “$(cat ~/hosts.new)” > /etc/hosts
