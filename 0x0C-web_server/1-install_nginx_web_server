@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# install nginx web server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+#sudo apt-get install -y --reinstall systemd
+sudo ufw default allow
+sudo ufw allow 'Nginx HTTP'
+echo y | sudo ufw enable
+#sudo sh -c 'echo "Holberton School for the win!" > /usr/share/nginx/html/index.html'
+sudo sh -c 'echo "Holberton School for the win!" > /var/www/html/index.html'
