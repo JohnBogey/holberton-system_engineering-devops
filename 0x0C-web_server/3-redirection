@@ -9,5 +9,5 @@ sudo sh -c 'echo "Holberton School for the win!" > /var/www/html/index.html'
 sudo service nginx restart
 sudo mkdir /var/www/html/redirect_me
 redirect="rewrite ^/redirect_me/$ https://youtu.be/fC7oUOUEEi4 permanent;"
-sudo sed -i "/listen \[::\]\:80 default_server\;/a $redirect" /etc/nginx/sites-enabled/default
+sudo sed -i "/listen \[::\]:80 default_server;/a $redirect" /etc/nginx/sites-enabled/default
 sudo service nginx reload
