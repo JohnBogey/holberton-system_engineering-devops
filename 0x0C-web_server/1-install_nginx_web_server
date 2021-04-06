@@ -8,3 +8,4 @@ sudo ufw allow 'Nginx HTTP'
 echo y | sudo ufw enable
 #sudo sh -c 'echo "Holberton School for the win!" > /usr/share/nginx/html/index.html'
 sudo sh -c 'echo "Holberton School for the win!" > /var/www/html/index.html'
+sudo service nginx restart
