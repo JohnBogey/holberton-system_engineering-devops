@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#debugging project 0
+sudo service apache2 restart
