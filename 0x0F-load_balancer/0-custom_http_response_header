@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# install nginx web server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw default allow
+sudo ufw allow 'Nginx HTTP'
+echo y | sudo ufw enable
+#set up index file
+sudo sh -c 'echo "Holberton School for the win!" > /var/www/html/index.html'
+#setup redirect file
+sudo mkdir /var/www/html/redirect_me
+redirect="rewrite ^/redirect_me/$ https://youtu.be/fC7oUOUEEi4 permanent;"
+sudo sed -i "/listen \[::\]:80 default_server;/a $redirect" /etc/nginx/sites-enabled/default
+#setup 404 file
+sudo touch /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+error="error_page 404 /404.html;"
+sudo sed -i "/listen \[::\]:80 default_server;/a $error" /etc/nginx/sites-enabled/default
+#setup HTTP response header
+add="add_header X-Served-By $HOSTNAME;"
+sudo sed -i "/listen \[::\]:80 default_server;/a $add" /etc/nginx/sites-enabled/default
+#restart to use changes
+sudo service nginx restart
