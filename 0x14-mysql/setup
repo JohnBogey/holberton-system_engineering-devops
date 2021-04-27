@@ -1,0 +1,34 @@
+#install sql
+echo 'deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7-dmr' | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install mysql-server-5.7
+
+#enter sql and create user
+mysql -u root -p
+	CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY 'projectcorrection280hbtn';
+	GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
+
+##web-01 only
+#create database
+	CREATE DATABASE tyrell_corp;
+	USE tyrell_corp;
+	CREATE TABLE nexus6 (id INT, name VARCHAR(256));
+	INSERT INTO nexus6 (id, name) VALUES (1, "Leon");
+	GRANT SELECT ON nexus6 TO 'holberton_user'@'localhost';
+	FLUSH PRIVILEGES;
+##end web-01 only
+
+#create replica user
+	CREATE USER 'replica_user'@'%' IDENTIFIED BY 'replica';
+	GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+	GRANT SELECT ON mysql.user TO 'holberton_user'@'localhost';
+	FLUSH PRIVILEGES;
+
+#setup primary-replica infrastructure
+sudo ufw allow 3306
+##make changes to /etc/mysql/mysql.conf.d/mysqld.cnf
+##restart mysql
+##create database on web02
+##make changes to conf
+## restart
+CHANGE MASTER TO MASTER_HOST='35.237.13.104', MASTER_USER='replica_user', MASTER_PASSWORD='replica', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=154;
