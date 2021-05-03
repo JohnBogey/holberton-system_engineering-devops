@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' returns info on employee based on ID arg '''
 
-import requests
 from sys import argv
+import requests
 
 if __name__ == "__main__":
     id = argv[1]
