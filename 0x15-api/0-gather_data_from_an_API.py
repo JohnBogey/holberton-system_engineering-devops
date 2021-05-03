@@ -17,7 +17,7 @@ if __name__ == "__main__":
     for task in r_tasks:
         if task['userId'] == int(id):
             task_total += 1
-            if task['completed'] == True:
+            if task['completed'] is True:
                 task_done += 1
     print("Employee {} is done with tasks({}/{}):"
           .format(r_name, task_done, task_total))

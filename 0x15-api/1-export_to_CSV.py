@@ -15,4 +15,5 @@ if __name__ == "__main__":
         for task in r_tasks:
             if task['userId'] == int(id):
                 csv.write('"{}","{}","{}","{}"\n'
-                .format(id, r_name, str(task['completed']), task['title']))
+                          .format(id, r_name, str(task['completed']),
+                                  task['title']))
