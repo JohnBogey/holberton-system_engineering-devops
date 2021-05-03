@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' returns info on employee based on ID arg '''
 
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     id = argv[1]
@@ -23,4 +23,4 @@ if __name__ == "__main__":
           .format(r_name, task_done, task_total))
     for task in r_tasks:
         if task['userId'] == int(id):
-            print("\t {}".format(task['title']))
+            print("\t{}".format(task['title']))
