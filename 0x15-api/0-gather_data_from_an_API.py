@@ -14,13 +14,14 @@ if __name__ == "__main__":
     task_done = 0
     task_total = 0
 
+    task_list = []
     for task in r_tasks:
         if task['userId'] == int(id):
             task_total += 1
             if task['completed'] is True:
                 task_done += 1
+                task_list.append(task['title'])
     print("Employee {} is done with tasks({}/{}):"
           .format(r_name, task_done, task_total))
-    for task in r_tasks:
-        if task['userId'] == int(id):
-            print("\t{}".format(task['title']))
+    for title in task_list:
+            print("\t {}".format(title))
