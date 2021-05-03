@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' returns info on employee based on ID arg into csv '''
 
-import requests
 import json
+import requests
 from sys import argv
 
 if __name__ == "__main__":
