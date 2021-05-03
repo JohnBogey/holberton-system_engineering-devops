@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
     task_done = 0
     task_total = 0
-
     task_list = []
+
     for task in r_tasks:
         if task['userId'] == int(id):
             task_total += 1
