@@ -20,6 +20,6 @@ def recurse(subreddit, hot_list=[], after="NULL"):
     except Exception as e:
         return None
     after = res.json()['data']['after']
-    if after not in [None, 'None', 'NULL']:    
+    if after not in [None, 'None', 'NULL']:
         return recurse(subreddit, hot_list, after)
     return hot_list
